@@ -1,38 +1,41 @@
 <template>
     <div class="course" @click="goCourseCenter">
-        <div class="subject">
-            <ul class="chinese">
-                <li><h3>语文</h3></li>
-                <li class="right"><img :src="require('../../assets/home/time.png')" alt="" class="time"> <span>08:00-09:30</span></li>
-            </ul>
-        </div>
-        <div class="course-infromation">
-             <ul class="first-line">
-                <li class="icon" id="one"><span><img :src="require('../../assets/home/course.png')" alt="" class="course-icon"></span><span>课程</span></li>
-                <li class="icon"><span><img :src="require('../../assets/home/classroom.png')" alt="" class="course-icon"></span><span>教室</span></li>
-                <li class="icon" id="last"><span><img :src="require('../../assets/home/teacher.png')" alt="" class="course-icon"></span><span>教师</span></li>
-                <li class="chapter">第二章·第2课</li>
-                <li class="chapter" id="class-num">B 512</li>
-                <li class="chapter">王老师</li>
-             </ul>
-        </div>
-        <div>
-            <state></state>
+        <img class="picture" src="../../assets/home/course-hg.png"/>
+        <div class="title">
+            <h2>计算机科学与技术</h2>
+            <div class="message">
+                <div class="position">
+                    <img class="icon" src="../../assets/home/classroom.png" />
+                    <p>教室</p>
+                    <span>B 512</span>
+                </div>
+                <div class="teacher">
+                    <img class="icon" src="../../assets/home/teacher.png"/>
+                    <p>教师</p>
+                    <span>王老师</span>
+                </div>
+            </div>
+            <div class="course-box">
+                <img class="icon" src="../../assets/home/course.png"/>
+                <p>课程</p>                
+            </div>
+            <div>
+                <a class="Latest-Chapters" href="jacascript:;">第二章·第2课 计算机组成原理</a>
+                <p class="Chapters-Learned">第二章·第2课 微机接口技术</p>
+            </div>
         </div>
     </div>
 </template>
 <script>
-import State from '../home/course-state'
 export default {
     components:{
-        State,
     },
     methods:{
-        /**@function 跳转进入课程中心 */
+        /**@function 进入课程中心 */
         goCourseCenter(){
             this.$router.push('/course-center');
         }
-    }
+    },
     
 }
 </script>
@@ -41,83 +44,104 @@ export default {
     @function px2rem($px){
         $rem:37.5px;
         @return ($px / $rem) + rem; 
+    }  
+    p{
+        color: #acadb0;
+    }  
+    a{
+        color: #2185ff;
     }
     .course{
-        width: px2rem(710px);
-        height: px2rem(370px);
-        margin: 0 auto;
-        padding-top: px2rem(20px);
-    }
-    .subject{
-        width: px2rem(710px);
-        height: px2rem(78px);
-        background-color: #bfc5d2;
-        border-top-left-radius: px2rem(10px);
-        border-top-right-radius: px2rem(10px);
-    }
-    h3{
-        font-size: px2rem(28px);
-        margin-left: px2rem(40px);
-    }
-    .chinese li{
-        color: white;
-        line-height: px2rem(78px);
-    }
-    li{
-        float: left;
-        list-style: none;
-        font-size: px2rem(24px);
-    }
-    .chinese .right{
-        float: right;
+        height: px2rem(188px);
+        background: white;
+        margin-bottom: px2rem(20px);
+        padding: px2rem(30px);
         font-size:px2rem(24px);
-        margin-right: px2rem(62px);
     }
-    .time{
-        display: block;
-        width: px2rem(32px);
-        height: px2rem(32px);
+    .picture{
+        width: px2rem(188px);
+        height: px2rem(188px);
+        border-radius: px2rem(18px);
         float: left;
-        margin-top: px2rem(22px);
-        margin-right: px2rem(20px);
+        margin-right: px2rem(30px);
     }
-    .course-infromation{
-        width: px2rem(710px);
-        height: px2rem(146px);
-        background-color: white;
-        margin: 0 auto;
-        border-bottom: 1px solid #f3f3f6;
-        position: relative;
-    }
-    .icon{
-        font-size: px2rem(12px);
-        color: #bfc5d2;
-        height: px2rem(32px);
-        color: #bfc5d2;
-        line-height: px2rem(35px);
-        width: px2rem(90px);
-        margin-right: px2rem(178px);
-        margin-top: px2rem(30px);
-    }
-    #one{
-        margin-left: px2rem(40px);
-    }
-    #last{
-        margin-right: 0;
-    }
-    .course-icon{
-        width: px2rem(32px);
-        height: px2rem(32px);
+    .title{
+        width: px2rem(442px);
+        height: px2rem(163px);
+        margin-top: px2rem(10px);
         float: left;
-        margin-right: px2rem(10px);
     }
-    .chapter{
-        margin-top: px2rem(20px);
-        margin-left: px2rem(40px);
+    .title h2{
+        font-size: px2rem(28px);
+        font-weight: none;
+        margin-bottom: px2rem(24px);
     }
-    #class-num{
-        margin-left: px2rem(150px);
-        margin-right: px2rem(160px);
+    .position .icon{
+        float: left;
+        margin-right: px2rem(11px);
+        width: px2rem(25px);
     }
+    .message{
+        height: px2rem(30px);
+        margin-bottom: px2rem(22px);
+    }
+    .position p{
+        font-size: px2rem(22px);
+        margin-right: px2rem(15px);
+        line-height: px2rem(26px);
+        float: left;
+    }
+    .position span{
+        line-height: px2rem(26px);
+        float: left;
+    }
+    .position{
+        margin-right: px2rem(15px);
+        float: left;
+    }
+    .teacher{
+        float: right;
+        height: px2rem(30px);
+    }
+    .teacher .icon{
+        width: px2rem(24px);
+        margin-right: px2rem(12px);
+        float: left;
+    }
+    .teacher p{
+        line-height: px2rem(26px);
+        margin-right: px2rem(13px);
+        float: left;
+    }
+    .teacher span{
+        line-height: px2rem(26px);
+        float: left;
+    }
+    .course-box .icon{
+        width: px2rem(22px);
+        float: left;
+        margin-right: px2rem(11px);
 
+    }
+    .course-box{
+        margin-bottom: px2rem(17px);
+        height: px2rem(22px);
+        float: left;
+    }
+    .course-box p{
+        line-height: px2rem(22px);
+        margin-right: px2rem(13px);
+        float: left;
+    }
+     .Latest-Chapters{
+        line-height: px2rem(24px);
+        margin-right: px2rem(13px);
+        margin-bottom: px2rem(12px);
+        float: left;
+    }
+    .Chapters-Learned{
+        line-height: px2rem(18px);
+        margin-right: px2rem(13px);
+        color: #000;
+    }
 </style>

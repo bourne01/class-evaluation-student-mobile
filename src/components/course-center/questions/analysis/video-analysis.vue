@@ -1,5 +1,5 @@
 <template>
     <div>
-        <!-- 课程目录区 -->
+        <!-- 考点视频解析-->
     </div>
 </template>

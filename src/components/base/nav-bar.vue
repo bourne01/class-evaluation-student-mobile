@@ -9,7 +9,7 @@
               </li> </a>
               <a href="###"> <li class="flex2">
                    
-                        <img src="../../assets/home/errors.png" alt="">
+                        <img src="../../assets/home/error-collection.png" alt="">
                         <p>错题集</p>
                    
               </li> </a>

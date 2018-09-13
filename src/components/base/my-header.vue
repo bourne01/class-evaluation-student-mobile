@@ -34,6 +34,7 @@ export default {
         justify-content: space-between;        
     }
     .header-left,.header-right{
+        width: px2rem(56px);
         height:px2rem(88px);
         line-height: px2rem(88px);
         font-weight: bold;
@@ -46,8 +47,9 @@ export default {
         height:px2rem(88px);
         line-height: px2rem(88px);
         text-align: center;
-        color:rgb(28,38,57);
-        font-family: 'FingFang';
+        font-size:px2rem(32px);
+        color:#171a20;
+        font-weight: bold;
     }
     /* .right{
         font-size:px2rem(36px);

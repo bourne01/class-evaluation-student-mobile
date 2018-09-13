@@ -38,8 +38,18 @@ export default new VueRouter({
 		{
 			path:'/course-center',
 			name:'CourseCenter',
-			component:() => import('../views/course-center'),
+			component:() => import('../views/course-center'),			
 		},
+		{
+			path:'/question',
+			name:'AnswerQuestion',
+			component:() => import('../views/question.vue')
+		},
+		/* {
+			path:'/comment',
+			name:'AnswerQuestion',
+			component:() => import('../views/comment.vue')
+		}, */
 		{	
 			path:'/page-not-found',
 			name:'PageNotFound',
