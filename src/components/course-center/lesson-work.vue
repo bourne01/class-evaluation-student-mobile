@@ -3,10 +3,10 @@
         <div class="state">
             <work-state></work-state>
         </div>
-        <div class="errors">
+        <div class="errors" v-if="isWorkDone">
             <credit-errors></credit-errors>
         </div>
-        <div class="count">
+        <div class="count" v-if="isWorkDone">
             <question-count></question-count>
         </div>
     </div>
@@ -21,6 +21,16 @@ export default {
         WorkState,
         CreditErrors,
         QuestionCount,
+    },
+    data(){
+        return{
+            isWorkDone:false,//作业是否已经完成
+        }
+    },
+    mounted(){
+        this.$root.bus.$on('work-done',(bl)=>{
+            this.isWorkDone = bl;
+        })
     }
     
 }

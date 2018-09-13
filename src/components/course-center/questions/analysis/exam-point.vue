@@ -18,7 +18,7 @@
         height: px2rem(100px);
         margin: 0 auto;
         line-height: px2rem(100px);
-        font-size: px2rem(22px);
+        font-size: px2rem(24px);
     }
     .play{
         width: px2rem(35px);

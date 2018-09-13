@@ -73,7 +73,7 @@
                 </ul>
             <div class="the-time">
                 <ul class="date-box">
-                    <li>交卷时间:2018/08/22 18:35</li>
+                    <li>截至时间:2018/08/22 18:35</li>
                     <li class="time">10.12.20</li>
                 </ul>
             </div>
@@ -92,6 +92,15 @@ export default {
         goAnswerQuestion(){
             this.$router.push("/question");
         }
+    },
+    watch:{
+        isWorkDone:function(){
+            
+        }
+    },
+    mounted(){
+        //作业未完成，传递事件给组件lesson-work.vue
+        this.$root.bus.$emit('work-done',this.isWorkDone);
     }
 }
 </script>

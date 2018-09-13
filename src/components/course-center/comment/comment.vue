@@ -50,6 +50,7 @@
         padding: px2rem(39px) px2rem(40px) px2rem(30px) px2rem(40px);
         background: white;
         border-bottom: 1px solid #f3f3f6;
+        font-size:px2rem(24px);
     }
     .title{
         float: left;
@@ -57,15 +58,15 @@
         width: px2rem(77px);
     }
     .title a{
-        font-size: px2rem(22px);
+        font-size: px2rem(24px);
         color: #000;
-        line-height: px2rem(22px);
+        line-height: px2rem(24px);
 
     }
     .title p{
-        font-size: px2rem(20px);
+        font-size: px2rem(24px);
         color: #979797;
-        line-height: px2rem(20px);
+        line-height: px2rem(24px);
     }
     .top{
         height: px2rem(57px); 
@@ -91,8 +92,8 @@
         width: px2rem(22px);
     }
     .zan p{
-        font-size: px2rem(16px);
-        line-height: px2rem(16px);
+        font-size: px2rem(24px);
+        line-height: px2rem(24px);
         color: #bfc5d2;
     }
     .commentary{
@@ -104,7 +105,7 @@
     .other-comment{
         padding: px2rem(30px) px2rem(20px);
         width: px2rem(556px);
-        font-size: px2rem(20px);
+        font-size: px2rem(24px);
         background: #f3f3f6;
         margin-top: px2rem(32px);
     }
