@@ -52,6 +52,7 @@ export default {
     
 }
 </script>
+
 <style lang="scss" scoped>
     @function px2rem($px){
         $rem:37.5px;

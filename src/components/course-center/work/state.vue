@@ -84,7 +84,7 @@
 export default {
     data(){
         return{
-            isWorkDone:false,//作业是否已经完成
+            isWorkDone:true,//作业是否已经完成
         }        
     },
     methods:{

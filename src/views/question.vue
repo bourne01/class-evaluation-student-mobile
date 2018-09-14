@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- <answer-question></answer-question> -->
+        <answer-question></answer-question>
         <question-number></question-number>
-        <check-analysis></check-analysis>
+        <!-- <check-analysis></check-analysis> --> 
     </div>
 </template>
 

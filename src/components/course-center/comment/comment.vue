@@ -29,17 +29,7 @@
             </div>
     </article>
 </template>
-<script>
-    window.onload=function(){
-        var xin = document.getElementById('xin');
-        var p = document.getElementById('p1');
-        var i =84;
-        xin.onclick=function(){
-            i++;
-            p.innerHTML=i;
-        }
-    }
-</script>
+
 <style lang="scss" scoped>
     @function px2rem($px){
         $rem:37.5px;

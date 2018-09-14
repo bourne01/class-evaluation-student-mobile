@@ -1,50 +1,65 @@
 <template>
-    <div class="transparent-bj" id="popup">
-        <div class="chapters">
-            <div class="course-catalog">
-                    <h4 class="catalog">课程目录</h4>
-                    <img :src="require('../../assets/schedule/close.png')" alt="" class="close" id="close">
+    <div v-transfer-dom class="course-intro">
+        <popup v-model="isShow" position="bottom" :show-mask="true">
+            <div class="chapters">
+                <div class="course-catalog">
+                        <h4 class="catalog">课程简介</h4>
+                        <img :src="require('../../assets/schedule/close.png')" alt="" class="close" id="close" @click="isShow=false">
+                </div>
+                <div class="teacher">
+                    <p class="teach">
+                        授课老师
+                    </p>
+                        <div class="pic" v-for="idx in 3" :key="idx">
+                            <img :src="require('../../assets/course/female-avatar.png')" alt="" class="female">
+                            <p>朱老师</p>
+                        </div>       
+                </div>
+                <div class="text">
+                    <p v-for="idx in 3" :key="idx"> 无论是电商详情页、摄影作品还是广告海报，它们都离不开人像精修。  
+                    设计师和修图师最容易遇到两个难题，一个是虽然技术很熟练
+                    无论是电商详情页、摄影作品还是广告海报，它们都离不开人像精修。  
+                    设计师和修图师最容易遇到两个难题，一个是虽然技术很熟练</p>
+                </div>
             </div>
-                 <div class="chapter"  v-for="idx in 2" :key="idx">
-                          <p>第一章</p>
-                      <ul class="chapter-catalog">
-                          <li class="first">
-                              第1课：Sublime Text代码
-                              <span>
-                                  <img :src="require('../../assets/svg/play.svg')" alt="" class="play">
-                              </span>
-                          </li>
-                          <li class="second">第2课：Sublime Text代码<span><img :src="require('../../assets/svg/more.svg')" alt="" class="play"></span></li>
-                          <li>第3课：Sublime Text代码<span><img :src="require('../../assets/svg/lock.svg')" alt="" class="play"></span></li>
-                          <li>第4课：Sublime Text代码<span><img :src="require('../../assets/svg/more.svg')" alt="" class="play"></span></li>
-                      </ul>
-                 </div>
-        </div>
+        </popup>
     </div>
 </template>
 <script>
-  window.onload = function(){
-      var close = document.getElementById('close');
-      var Popup = document.getElementById('popup');
-      close.onclick = function(){
-           Popup.style.display = 'none';
-      }
-  }
-</script>
+import {TransferDom, Popup} from 'vux'
+export default {
+    directives: {
+        TransferDom
+    },
+    components:{
+        Popup
+    },
+    data(){
+        return{
+            isShow:false,
+        }
+    },
+    methods:{
 
+    },
+    mounted(){
+        this.$root.bus.$on('course-introduction',()=>{
+            this.isShow = true;
+        })
+    }
+}
+</script>
 
 <style lang="scss" scoped>
      @function px2rem($px){
         $rem:37.5px;
         @return ($px / $rem) + rem; 
+    }    
+    .vux-popup-dialog{
+        background-color:rgba(0,0,0, 0);
     }
-    .transparent-bj{
-         position: absolute; 
-         top: 0%; 
-         left: 0%; 
-         width: 100%; 
-         height: 100%; 
-         background-color:rgba(0, 0, 0, 0.5);
+    .course-intro{
+        background-color:rgba(0,0,0, 0)
     }
     .chapters{
         width: px2rem(750px);
@@ -52,21 +67,19 @@
         background-color: #f3f3f6;
         margin-top: px2rem(500px);
         overflow-y: scroll;
+        font-size: px2rem(24px);
     }
     .course-catalog{
         height: px2rem(98px);
         margin: 0 auto;
         line-height: px2rem(40px);
-        margin-bottom: px2rem(20px);
         font-size: px2rem(32px);
-        margin-bottom: px2rem(10px);
+        margin-bottom: px2rem(9px);
         background: white;
         position: relative;
         color: #171a20;
         line-height: px2rem(98px);
-    }
-    .catalog{
-        margin-left: px2rem(40px);
+        padding-left: px2rem(40px);
     }
     .close{
         width: px2rem(40px);
@@ -76,36 +89,38 @@
         top: px2rem(30px);
         right: px2rem(40px);
     }
-    .chapter{
-        height: px2rem(516px);
+    .teacher{
+        height: px2rem(228px);
         background: white;
-        margin-bottom: px2rem(10px);
+        padding-left: px2rem(40px);
+        color: rgb(88, 90, 96);
+        margin-bottom: px2rem(9px);
     }
-    p{
-        height: px2rem(70px);
+    .female{
+        width: px2rem(88px);
+        height: px2rem(88px);
+    }
+    .pic{
+        width: px2rem(98px);
+        height: px2rem(122px);
         text-align: center;
-        font-size: px2rem(24px);
-        line-height: px2rem(70px);
+        line-height: px2rem(32px);
+        float: left;
+        margin-right: px2rem(20px);
     }
-    .chapter-catalog li{
-           list-style: none;
-           height: px2rem(109px);
-           border-top: 1px solid #f1f1f1;
-           line-height: px2rem(109px);
-           font-size: px2rem(28px);
-           padding: 0 px2rem(40px);
+    .teach{
+        line-height: px2rem(28px);
+        margin-bottom: px2rem(20px);
+        padding-top: px2rem(30px);
+        padding-left: px2rem(10px);
     }
-    .first{
-        color: #acadb0;
+    .text{
+        background: white;
+        padding: px2rem(40px);
+        text-align: justify;
     }
-    .second{
-        color: #2185ff;
-    }
-    .chapter-catalog span,.chapter-catalo img{
-        width: px2rem(36px);
-        height: px2rem(36px);
-        float: right; 
-        margin-top: px2rem(10px);
+    .text p{
+        margin-bottom: px2rem(20px);
     }
 </style>
 

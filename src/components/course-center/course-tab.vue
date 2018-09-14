@@ -7,7 +7,7 @@
             active-color="#fa5b4a"
             >
             <tab-item  @on-item-click="onTabClick">课程目录</tab-item>
-            <tab-item selected @on-item-click="onTabClick">课后作业</tab-item>
+            <tab-item selected @on-item-click="onTabClick">课堂作业</tab-item>
             <tab-item @on-item-click="onTabClick">学生讨论</tab-item>
         </tab>
         <comment v-if="actIndex===2"></comment>

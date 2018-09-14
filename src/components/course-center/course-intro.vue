@@ -3,7 +3,7 @@
         <ul class="chapter-directory">
             <li class="computer">
                 <span>计算机课程·第一章</span>
-                <div class="right">
+                <div class="right" @click="onClick">
                     <span>简介</span>
                     <span class="pic"><img :src="require('../../assets/home/more_icon.png')" alt="" id="more"></span>
                 </div>
@@ -15,18 +15,32 @@
             <li  class="mes-box"><i class="message"></i><span>136</span></li>
             <li><i class="like"></i><span>210</span></li>
         </ul>
-        
+        <introduction-popup></introduction-popup>
     </div>
 </template>
-<script>
-   window.onload = function(){
-       var more =document.getElementById('more');
-           more.onclick = function(){
-               window.open("content-popup");         
-           }
-   }
 
+<script>
+import IntroductionPopup from './intro-popup'
+export default {
+    components:{
+        IntroductionPopup,
+    },
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        /**@function 监听点击查看课程简介图标，然后发送点击事件 */
+        onClick(){
+            console.log('...jfaljfaljfalj');
+            this.$root.bus.$emit('course-introduction');
+        },
+    },
+}
 </script>
+
+
 <style lang="scss" scoped>
      @function px2rem($px){
         $rem:37.5px;

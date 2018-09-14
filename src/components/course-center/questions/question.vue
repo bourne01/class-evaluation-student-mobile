@@ -1,26 +1,74 @@
 <template>
     <div>
         <div class="head">
-             <span class="back" @click="histor.go(-1)"></span>
+             <span class="back" @click="goBack"></span>
              <span class="month">04 /</span>
              <span>20</span>
-             <span class="all-question"></span>
+             <span class="all-question" @click="onClick('AllQuestion')"></span>
         </div>
         <div class="problem-area">
             <div class="types">多选</div>
             <h4>04.当前计算机的应用领域极为广泛，但其应用最早的 前计算机的应用领域极为广泛，但其应用最早的领域 的领域是____。</h4>
             <ul class="option">
-                <li><span>A  数据处理</span></li>
-                <li class="selected"><span>B  科学计算</span></li>
-                <li><span>C  人工智能</span></li>
-                <li><span>D  过程控制</span></li>
+                <li 
+                    v-for="(item,idx) in questionItems" 
+                    :key="idx"
+                    @click="onSelect(idx)"
+                    :class="{selected:idx===selectedIndex}">
+                    <span>{{questionItems[idx]}}</span>
+                </li>
             </ul>
+        </div>
+        <div class="tools">
+            <span>
+                <img :src="require('../../../assets/svg/correction.svg')" alt="">
+                纠错
+            </span>
+            <span>
+                <img :src="require('../../../assets/svg/favorite.svg')" alt="">
+                收藏
+            </span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    components:{
+    },
+    data(){
+        return{
+            questionItems:['A  数据处理','B  科学计算','C  人工智能','D  过程控制'],
+            selectedIndex:-1,//默认被选中的选项
+        }
+    },
+    methods:{
+        /**
+         * @function 监听点击全部试题图标，发送点击事件 
+         * @param {点击的对象类型} type
+         */
+        onClick(type){
+            console.log("Event:All Question");
+            if(type === 'AllQuestion'){
+                
+                this.$root.bus.$emit('all-question');
+            }
+        },
+        /**@function 监听返回按钮事件，回退到上一页 */
+        goBack(){
+            history.go(-1);
+        },
+        /**
+         * @function 监听点击题目选项事件，给选中的题目改变样式 
+         * @param {题目序号} index
+        */
+        onSelect(index){
+            this.selectedIndex = index;
+        },
+    },
+    mounted(){
+        console.log("I M mounting...");
+    }
     
 }
 </script>
@@ -95,6 +143,25 @@ export default {
     }
     .option span{
         margin-left: px2rem(62px);
+    }
+    .tools{
+        position: fixed;
+        bottom:0;
+        left:0;
+        height:px2rem(98px);
+        display:flex;
+        justify-content: space-between;
+        line-height:px2rem(98px);
+        font-size:px2rem(24px);
+        border-top:1px solid #f1f1f1;
+        width:100%;
+        padding-left:px2rem(50px);
+        padding-right:px2rem(60px);
+        box-sizing: border-box;
+    }
+    .tools img{
+        width:px2rem(50px);
+        vertical-align: middle;
     }
 </style>
 
