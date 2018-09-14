@@ -1,33 +1,65 @@
 <template>
     <div class="nav-bar">
-         <ul class="box">
-              <a href="###"> <li class="flex1">
-                   
-                        <img src="../../assets/home/home.png" alt="">
-                        <p>首页</p>
-                   
-              </li> </a>
-              <a href="###"> <li class="flex2">
-                   
-                        <img src="../../assets/home/error-collection.png" alt="">
-                        <p>错题集</p>
-                   
-              </li> </a>
-              <a href="###"><li class="flex3">
-                    
-                        <img src="../../assets/home/rank.png" alt="">
-                        <p>积分排行</p>
-                   
-              </li> </a>
-              <a href="###">
-                  <li class="flex4">
-                        <img src="../../assets/home/mine.png" alt="">
-                        <p>我的</p>
-              </li>
-              </a>
-         </ul>
+        <ul>
+            <li 
+                v-for="(item,idx) in navNames" 
+                :key="idx"
+                @click="onClick(idx)">
+                <img :src="actIcons[idx]" alt="" v-if="actIndex===idx">
+                <img :src="defaultIcons[idx]" v-else>
+                <p>{{navNames[idx]}}</p>
+            </li>  
+        </ul>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            actIndex:0,//当前导航的位置
+            navNames:['首页','错题集','积分排行','我的'],
+            defaultIcons:[//默认导航图标
+                require("../../assets/home/home.png"),
+                require("../../assets/home/error-collection.png"),
+                require("../../assets/home/rank.png"),
+                require("../../assets/home/mine.png"),
+            ],
+            actIcons:[//激活是图标
+                require("../../assets/home/home-active.png"),
+                require("../../assets/home/error-collection-active.png"),
+                require("../../assets/home/rank-active.png"),
+                require("../../assets/home/mine-active.png"),
+            ],
+        }
+    },
+    methods:{
+        /**
+         * @function 监听导航条点击事件，跳转到相应页面
+         * @param {当前激活的按钮序号} index
+         */
+        onClick(index){
+            this.actIndex = index;
+            switch(index){
+                case 0:
+                    this.$router.push("/home");
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                    this.$router.push("/credit-rank");
+                    break;
+                case 3:
+                    break;
+                default:
+            }
+        },
+    },
+}
+</script>
+
+
 <style lang="scss" scoped>
     @function px2rem($px){
         $rem:37.5px;
@@ -37,29 +69,30 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        border-top: 1px solid #fefeff;
-        background-color:#fffcf2;
+        background-color:#fff;
+        border-top: 1px solid #f1f1f1;
         z-index: 10;
+        width:100%;
     }
     li{
-          list-style: none;
-          float: left;
-          text-align: center;
-          margin: 0 px2rem(14px);
-          width: px2rem(160px);
-          height: px2rem(90px);
-          margin-top: px2rem(20px);
-    }
-    a{
-      color: #9b9ea3;
-      font-size: px2rem(24px);
+        list-style: none;
+        text-align: center;
+        height: px2rem(109px);
+        padding-top: px2rem(20px);
+        width:px2rem(160px);
+        color: #9b9ea3;
+        font-size: px2rem(24px);
+        padding-bottom: px2rem(10px);
+        box-sizing: border-box;
+        line-height: normal;
     }
     img{
-        width: px2rem(40px);
-        height: px2rem(40px);
+        width: px2rem(50px);
+        height: px2rem(50px);
     }
-    .box{
+    .nav-bar>ul{
         display: flex;
-        align-items: center;
+        /* align-items: center; */
+        justify-content: space-between;
     }
 </style>

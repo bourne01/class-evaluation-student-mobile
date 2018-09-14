@@ -34,5 +34,6 @@ export default {
 	body {
 	//background-color: #fbf9fe;
 		font-family: 'PingFang-SC-Medium','Microsoft Yahei';
+		line-height:normal;
 	}
 </style>

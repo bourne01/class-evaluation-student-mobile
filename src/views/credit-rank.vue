@@ -39,13 +39,19 @@ export default {
         $rem:37.5px;
         @return ($px / $rem) + rem; 
     }
-   #wrap{background: #fec001;margin-bottom: px2rem(108px);
-        height: px2rem(1495px);position: relative;} 
-    div{margin: 0;padding: 0;}
-   #body{width: px2rem(670px);height: px2rem(1158px);
-        margin:  0 auto;border: 6px solid #fea201;
-        border-radius: 20px;
-        background: white;}
+   #wrap{
+       background: #fec001;
+       margin-bottom: px2rem(108px);
+       height: px2rem(1495px);
+       position: relative;} 
+   #body{
+       width: px2rem(670px);
+       height: px2rem(1158px);
+       margin:  0 auto;
+       border: 6px solid #fea201;
+       border-radius: 20px;
+       background: white;
+       }
     
 </style>
 

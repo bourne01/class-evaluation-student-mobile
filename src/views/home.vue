@@ -4,7 +4,7 @@
             <span slot="left" class="header-left"></span>       
             <span slot="center" class="header-center">智慧教室</span>       
             <span class="header-right" slot="right">
-                <img :src="require('../assets/home/schedule.png')" alt="" >     
+                <img :src="require('../assets/home/schedule.png')" alt="" @click="goSchedule">     
             </span>            
         </my-header>
         <section class="banner">
@@ -40,7 +40,9 @@ export default {
         color:#171a20;
     }
     .header-right{
-        
+        padding-right:px2rem(38px);
+        text-align: right;
+        box-sizing: border-box;
     }
     .banner{
         margin: 0 auto;

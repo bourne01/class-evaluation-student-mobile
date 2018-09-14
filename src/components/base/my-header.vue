@@ -34,7 +34,7 @@ export default {
         justify-content: space-between;        
     }
     .header-left,.header-right{
-        width: px2rem(56px);
+        width: px2rem(96px);
         height:px2rem(88px);
         line-height: px2rem(88px);
         font-weight: bold;
