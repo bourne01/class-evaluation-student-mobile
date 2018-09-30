@@ -17,7 +17,8 @@
 img{
     width: px2rem(750px);
     height: px2rem(248px);
-    margin-right: px2rem(34px);}
+    /* margin-right: px2rem(34px); */
+    }
 </style>
 
 

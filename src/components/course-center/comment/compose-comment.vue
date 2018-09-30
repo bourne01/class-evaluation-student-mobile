@@ -1,8 +1,9 @@
 <template>
     <div class="compose-comment">
         <img src="../../../assets/course/hp.png" alt="" class="head-portrait"/>
-        <input type="text" value="| 说点什么" class="text"/>
+        <input type="text" class="text" placeholder="说点什么"/>
         <input type="button" value="发送" class="btn"/> 
+        
     </div>
 </template>
 
@@ -31,18 +32,22 @@
         width: px2rem(390px);
         padding: px2rem(15px) px2rem(45px);
         font-size: px2rem(28px);
-        color: #bfc5d2;
+        /* color: #bfc5d2; */
         border: 0px;
-        border-radius: px2rem(28px);
+        border-radius: px2rem(40px);
         background: #f3f3f6;
         margin-right: px2rem(10px);
         float: left;
+        outline:none;
+    }
+    .text:hover{
+        border:1px solid #4B78FF;
     }
     .btn{
         width: px2rem(100px);
         height: px2rem(57px);
         border-radius: px2rem(28px);
-        background: #7573e6;
+        background: #4B78FF;
         border: 0;
         font-size: px2rem(26px);
         color: white;

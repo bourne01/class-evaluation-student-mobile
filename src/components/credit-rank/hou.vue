@@ -20,7 +20,8 @@
         font-size: px2rem(36px);
         color: #171a20;width: px2rem(129px);
         line-height: px2rem(140px);
-        text-align: center;}
+        text-align: center;
+        }
      #tx{
         width: px2rem(80px);
         height: px2rem(80px);

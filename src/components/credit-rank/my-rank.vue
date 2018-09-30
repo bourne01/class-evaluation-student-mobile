@@ -14,9 +14,9 @@
     #tabbody{
         width: px2rem(650px);
         height: px2rem(120px);
-        background: #7573e6;
-        position: relative;
-        bottom: px2rem(108px);
+        background: #2185FF;
+        position: fixed;
+        bottom: px2rem(128px);
         left: px2rem(50px);
         border-radius: px2rem(20px);}
     #pm{

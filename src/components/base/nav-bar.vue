@@ -10,6 +10,7 @@
                 <p>{{navNames[idx]}}</p>
             </li>  
         </ul>
+        
     </div>
 </template>
 
@@ -42,15 +43,16 @@ export default {
             this.actIndex = index;
             switch(index){
                 case 0:
-                    this.$router.push("/home");
+                    this.$router.push("/home");//<a href=""></a>
                     break;
                 case 1:
-                    
+                    this.$router.push("/my-errors");
                     break;
                 case 2:
                     this.$router.push("/credit-rank");
                     break;
                 case 3:
+                    this.$router.push("/me");
                     break;
                 default:
             }

@@ -1,17 +1,32 @@
 <template>
     <div class="chapters">
         <div class="chapter"  v-for="idx in 2" :key="idx">
-                <p>第一章</p>
+            <p>第一章</p>
             <ul class="chapter-catalog">
                 <li class="first">
                     第1课：Sublime Text代码
-                    <span>
+                    <span @click="onClick('play')">
                         <img :src="require('../../assets/svg/play.svg')" alt="" class="play">
                     </span>
                 </li>
-                <li class="second">第2课：Sublime Text代码<span><img :src="require('../../assets/svg/more.svg')" alt="" class="play"></span></li>
-                <li>第3课：Sublime Text代码<span><img :src="require('../../assets/svg/lock.svg')" alt="" class="play"></span></li>
-                <li>第4课：Sublime Text代码<span><img :src="require('../../assets/svg/more.svg')" alt="" class="play"></span></li>
+                <li class="second">
+                    第2课：Sublime Text代码
+                    <span>
+                        <img :src="require('../../assets/svg/more.svg')" alt="" class="play">
+                    </span>
+                </li>
+                <li
+                    >第3课：Sublime Text代码
+                    <span>
+                        <img :src="require('../../assets/svg/lock.svg')" alt="" class="play">
+                    </span>
+                </li>
+                <li>
+                    第4课：Sublime Text代码
+                    <span>
+                        <img :src="require('../../assets/svg/more.svg')" alt="" class="play">
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
@@ -19,7 +34,19 @@
 
 <script>
 export default {
-    
+    methods:{
+        /**
+         * @function 监听点击图标事件
+         * @param {图标类型} type
+         */
+        onClick(type){
+            switch(type){
+                case 'play':
+                    this.$root.bus.$emit('play',1)
+                    break;
+            }
+        },
+    },
 }
 </script>
 

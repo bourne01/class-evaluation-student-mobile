@@ -31,6 +31,16 @@ export default new VueRouter({
 					name:'CreditRank',
 					component:() => import('../views/credit-rank.vue'),
 				},
+				{
+					path:'my-errors',
+					name:'MyErrorCollection',
+					component:() => import('../views/my-errors.vue')
+				},
+				{
+					path:'me',
+					name:'Me',
+					component:() => import('../views/me.vue')
+				},
 			]
 
 		},		
@@ -44,15 +54,36 @@ export default new VueRouter({
 			name:'AnswerQuestion',
 			component:() => import('../views/question.vue')
 		},
-		/* {
-			path:'/comment',
-			name:'AnswerQuestion',
-			component:() => import('../views/comment.vue')
-		}, */
-		{	
+		
+		{
+			path:'/course-errors',
+			name:'CourseErrorCollection',
+			component:() => import('../views/course-errors.vue')
+		},
+		/* {	
 			path:'/page-not-found',
 			name:'PageNotFound',
-			component:() => import('../components/page-not-found')
+			component:() => import('../views/page-not-found')
+		},	 */
+		{	
+			path:'/favorite-question',
+			name:'FavoritQuestion',
+			component:() => import('../views/favorite-question')
+		},	
+		{	
+			path:'/favorite-opencourse',
+			name:'FavoritQuestion',
+			component:() => import('../views/favorite-opencourse')
+		},	
+		{	
+			path:'/notice',
+			name:'FavoritQuestion',
+			component:() => import('../views/notice')
+		},	
+		{	
+			path:'/search',
+			name:'SearchCourse',
+			component:() => import('../views/search')
 		},	
 	]
 })

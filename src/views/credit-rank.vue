@@ -5,8 +5,6 @@
             <div id="body">
                 <section>
                     <rank-tab></rank-tab>
-                    <Qian v-for="idx in 3" :key="idx"></Qian>
-                    <Hou v-for="idx in 4" :key="idx"></Hou>
                 </section> 
             </div>
             <section>
@@ -19,18 +17,16 @@
 <script>
 import RankType from '../components/credit-rank/rank-type'
 import RankTab from '../components/credit-rank/rank-tab'
-import Qian from '../components/credit-rank/qiansan'
-import Hou from '../components/credit-rank/hou'
 import MyRank from '../components/credit-rank/my-rank'
 export default {
     components:{
         RankType,
         RankTab,
-        Qian,
-        Hou,
         MyRank,
+    },
+    mounted(){
+        
     }
-    
 }
 </script>
 
@@ -41,12 +37,11 @@ export default {
     }
    #wrap{
        background: #fec001;
-       margin-bottom: px2rem(108px);
-       height: px2rem(1495px);
-       position: relative;} 
+       /* margin-bottom: px2rem(128px); */
+       position: relative;
+       padding-bottom:px2rem(128px)} 
    #body{
-       width: px2rem(670px);
-       height: px2rem(1158px);
+       width: px2rem(682px);       
        margin:  0 auto;
        border: 6px solid #fea201;
        border-radius: 20px;

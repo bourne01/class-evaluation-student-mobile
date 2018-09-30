@@ -54,7 +54,10 @@ export default {
         }
     },
     mounted(){
-        this.player = this.$refs.player.dp
+        this.player = this.$refs.player.dp;
+        this.$root.bus.$on('play',(id) => {            
+            this.player.play();//播放
+        });
     } 
 }
 </script>

@@ -11,8 +11,11 @@
             <li>第2课 Sublime Text代码</li>
         </ul>
         <ul class="review-area">
-            <li><i class="eye"></i><span>2466</span></li>
-            <li  class="mes-box"><i class="message"></i><span>136</span></li>
+            <li><i class="eye"></i><span>2466</span></li>            
+            <li class="favorite" @click="collect">
+                <img 
+                    :src="isFavorite?require('../../assets/svg/favorite-active.svg'):require('../../assets/svg/favorite.svg')" alt="">收藏
+            </li><li  class="mes-box"><i class="message"></i><span>136</span></li>
             <li><i class="like"></i><span>210</span></li>
         </ul>
         <introduction-popup></introduction-popup>
@@ -27,7 +30,7 @@ export default {
     },
     data(){
         return{
-
+            isFavorite:false,
         }
     },
     methods:{
@@ -36,6 +39,11 @@ export default {
             console.log('...jfaljfaljfalj');
             this.$root.bus.$emit('course-introduction');
         },
+
+        /**@function 收藏课程 */
+        collect(){
+            this.isFavorite = !this.isFavorite;
+        }
     },
 }
 </script>
@@ -70,7 +78,7 @@ export default {
         float: right;
         line-height: px2rem(45px);
     }
-    img{
+    .chapter-directory img{
         display: block;
         width: px2rem(30px);
         height: px2rem(30px);
@@ -97,29 +105,44 @@ export default {
         padding-top: px2rem(28px);
     }
     .review-area li{
-          float: left;
+          float: right;
           font-size: px2rem(24px);
+          color:#ACADB0;
+          margin-right:px2rem(40px);
+    }
+    .review-area li:first-child{
+        float:left;
+    }
+    .review-area img{
+        width:px2rem(38px);
+        height:px2rem(38px);
+        vertical-align: middle;
+        position: relative;
+        top:px2rem(-4px);
+        margin-right:px2rem(8px)
     }
     i{
         display: block;
-        width: px2rem(30px);
-        height: px2rem(30px);
+        width: px2rem(40px);
+        height: px2rem(40px);
         float: left;
-        margin-top: px2rem(4px);
+        margin-top: px2rem(2px);
         margin-right: px2rem(8px);
     }
     .like{
         background: url(../../assets/svg/like.svg);
+        background-position-y: -3px;
     }
     .eye{
-        background: url(../../assets/svg/like.svg);
+        background: url(../../assets/svg/visit.svg);
+        background-position-y: -3px;
     }
     .message{
-         background: url(../../assets/svg/like.svg);
+         background: url(../../assets/svg/comment.svg);
+         background-position-y: -2px;
     }
-    .review-area li:last-child{
-        float: right;
-        margin-right: px2rem(58px);
+    .review-area .favorite{
+        margin-right: 0;
     }
      .review-area .mes-box{
         float: right;

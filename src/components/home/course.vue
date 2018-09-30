@@ -29,6 +29,7 @@
 <script>
 export default {
     components:{
+        course:{},//课程对象
     },
     methods:{
         /**@function 进入课程中心 */
